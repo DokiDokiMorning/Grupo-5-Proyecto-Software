@@ -8,7 +8,7 @@ En respuesta a la problemática, nuestro grupo colaborará con la segunda parte 
 -Fernando Alonso Zambrano Altamirano  
 -Vicente Jesus Vilchez Diaz
 3) Enlaces a entregables del 1 al 4 del proyecto:
-- [Entregable 1](/Entregable 1/)
+- [Entregable 1](https://www.google.com)
 - Entregable 2.
 - Entregable 3.
 - Entregable 4.
