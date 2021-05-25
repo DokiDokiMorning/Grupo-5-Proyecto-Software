@@ -9,6 +9,6 @@ En respuesta a la problemática, nuestro grupo colaborará con la segunda parte 
 -Vicente Jesus Vilchez Diaz
 3) Enlaces a entregables del 1 al 4 del proyecto:
 - [Entregable 1](https://github.com/DokiDokiMorning/Grupo-5-Proyecto-Software/tree/main/Entregable%201)
-- Entregable 2.
-- Entregable 3.
-- Entregable 4.
+- [Entregable 2](https://github.com/DokiDokiMorning/Grupo-5-Proyecto-Software/tree/main/Entregable%202)
+- [Entregable 3](https://github.com/DokiDokiMorning/Grupo-5-Proyecto-Software/tree/main/Entregable%203)
+- [Entregable 4](https://github.com/DokiDokiMorning/Grupo-5-Proyecto-Software/tree/main/Entregable%204)
