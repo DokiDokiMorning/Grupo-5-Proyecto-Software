@@ -4,8 +4,8 @@ En respuesta a la problemática, nuestro grupo colaborará con la segunda parte 
   -Sistema de administración de Contenidos: Clasififación de cursos, temas, registro de materiales y evaluaciones.
   -Sistema de evaluaciones: Tests, quiz, exámenes, evaluaciones orales.
 3) Miembros del equipo:
--Angel
--Zambrano
+-Angel Vidal Larreátegui Castro
+-Fernando Alonso Zambrano Altamirano
 -Vicente Jesus Vilchez Diaz
 3) Enlaces a entregables del 1 al 4 del proyecto:
 - Entregable 1.
