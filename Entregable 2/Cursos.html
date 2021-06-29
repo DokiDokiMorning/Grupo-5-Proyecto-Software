@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">Curso 1</a>
+  <a href="#">Curso 2</a>
+  <a href="#">Curso 3</a>
+  <a href="#">Curso 4</a>
+  <ul>
+      <a href="#">Notas</a></li>
+  </ul>
+</div>
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="driveNav()">&#9776;</span>
+  <h1 style="display:inline-block; text-decoration:none; color:#295F74; margin-right:20px;">Curso 1</h1>
+  <a href="staff.html" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Editar</h6></a>
+  <a href="staff.html" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Alumnos Matriculados</h6></a>
+  <a href="#"><p>+ Crear Clase</p></a>
+  <a href="#"><p>+ Crear Evaluación</p></a>
+  <select id="clases" name="select" onchange="funcionclase()">
+    <option value="Clase1">Clase 1</option>
+    <option value="Clase2" selected>Clase 2</option>
+    <option value="Clase3">Clase 3</option>
+  </select>
+  <a href="staff.html" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Subir Material</h6></a>
+<p id="materialclase"></p>
+  <select id="evaluaciones" name="select" onchange="funcionevaluacion()">
+    <option value="Evalciacion1">Evaluación 1</option>
+    <option value="Evalciacion2" selected>Evaluación 2</option>
+    <option value="Evalciacion3">Evaluación 3</option>
+  </select>
+  <a href="staff.html" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Evaluar trabajos</h6></a>
+<p id="evaluacionespasadas"></p>
+</div>
+<script type="text/javascript" src="navegador.js"></script>
+</body>
+</html> 
