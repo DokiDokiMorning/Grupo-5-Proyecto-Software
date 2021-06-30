@@ -72,7 +72,7 @@ function ClaseProfesor(){
         </ul>
       </div>
       <div id="top" class="topbar">
-        <span id="menu" style={spanStyle} onClick={driveNav}>&#9776;Menú</span>
+        <span id="menu" style={spanStyle} onClick={driveNav}>&#9776; Menú</span>
       </div>
       <div class="fondo" id="container">
         <div id="main">
@@ -81,19 +81,20 @@ function ClaseProfesor(){
         <a href="staff.html" style={aStyle}><h6>Alumnos Matriculados</h6></a>
         <a href="#"><p>+ Crear Material</p></a>
         <a href="#"><p>+ Crear Evaluacion</p></a>
-        <select id="clases" name="select" onchange={funcionClase}>
-          <option value="Semana1">Semana 1</option>
-          <option value="Semana2" selected>Semana 2</option>
-          <option value="Semana3">Semana 3</option>
+        <br />
+        <select id="clases" name="select" onChange={funcionClase}>
+          <option value="Semana 1">Semana 1</option>
+          <option value="Semana 2" selected>Semana 2</option>
+          <option value="Semana 3">Semana 3</option>
         </select>
-        <a id="materialClase"></a>
-        <select id="evaluaciones" name="select" onchange={funcionEvaluacion}>
-          <option value="Evaluacion1">Evaluación 1</option>
-          <option value="Evaluacion2" selected>Evaluación 2</option>
-          <option value="Evaluacion3">Evaluación 3</option>
+        <a1 id="materialClase"></a1>
+        <select id="evaluaciones" name="select" onChange={funcionEvaluacion}>
+          <option value="Evaluacion 1">Evaluación 1</option>
+          <option value="Evaluacion 2" selected>Evaluación 2</option>
+          <option value="Evaluacion 3">Evaluación 3</option>
         </select>
         <a href="staff.html" style={aStyle}><h6>Calificar evaluaciones</h6></a>
-        <a id="evaluacionesPasadas"></a>
+        <a1 id="evaluacionesPasadas"></a1>
         </div>
       </div>
     </div>
