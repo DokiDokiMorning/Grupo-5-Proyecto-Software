@@ -1,0 +1,98 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Times New Roman", Times, serif;
+}
+
+body{
+  background-image: url(./../imagenes/pab_cent_uni.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.sidenav{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: maroon;
+  transition: 0.5s;
+  padding-top: 60px;
+  overflow-x: hidden;
+}
+
+.sidenav a{
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover{
+  color: #111;
+}
+
+.sidenav a1{
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #fff;
+  display: block;
+}
+
+.sidenav .closebtn{
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main{
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+#main a{
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  font-size: 30px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+#main a:hover{
+  color: maroon;
+}
+
+.fondo{
+  height: 100%;
+  width: relative;
+  position: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  background-color: rgba(237,251,21,0.5);
+  transition: 0.5s;
+}
+
+.topbar{
+  height: auto;
+  width: 100%;
+  z-index: 1;
+  background-color: maroon;
+  transition: 0.5s;
+}
+
+@media screen and (max-height: 450px){
+  .sidenav{padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
