@@ -3,6 +3,7 @@ var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
+
 const crypto = require('crypto')
 let salt = 'f844b09ff50c'
 let alumn = "@uni.pe";
@@ -57,17 +58,14 @@ app.post('/reg', function(request, response) {
         }
         connection.query('INSERT INTO usuario SET ?',users, function (error, results, fields) {
           if (error) {
-            response.send({
-              "code":400,
-              "failed":"error ocurred"
-            })
+            response.send('El correo ya ha sido registrado u ocurrió un error interno.')
           } else {
             response.redirect('/');
             }
         });
     }
   else{
-    response.send(alert("Correo no válido"));
+      response.redirect('/');
   }
 });
 /*app.post('/reg', function(request, response) {
@@ -135,5 +133,6 @@ app.post('/auth', function(request, response) {
     /*response.end();*/
   }
 });
+
 
 app.listen(3000);

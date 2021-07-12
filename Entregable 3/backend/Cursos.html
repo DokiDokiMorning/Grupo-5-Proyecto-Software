@@ -139,7 +139,7 @@
   <h1 style="display:inline-block; text-decoration:none; color:#295F74; margin-right:20px;">Curso 1</h1>
   <a href="staff.html" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Editar</h6></a>
   <a href="staff.html" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Alumnos Matriculados</h6></a>
-  <a href="#"><p>+ Crear Clase</p></a>
+  <a href="#"><p>+ Nueva Semana</p></a>
   <a href="#"><p>+ Crear Evaluación</p></a>
   <select id="clases" name="select" onchange="funcionclase()">
     <option value="Clase1">Clase 1</option>
@@ -201,6 +201,8 @@ function driveNav() {
 function funcionclase(){
   var x= document.getElementById("clases").value;
   document.getElementById("materialclase").innerHTML = "Esta es la " + x;
+  
+
 }
 function funcionevaluacion(){
   var x= document.getElementById("evaluaciones").value;

@@ -177,15 +177,15 @@ body{
     <div class="container_login_register">
       <form action="auth" method="POST" class="formulario_login">
         <h2>Iniciar sesión</h2>
-        <input name="correo" type="text" placeholder="Correo Electrónico" />
-        <input name="password" type="password" placeholder="Contraseña" />
+        <input name="correo" type="email" pattern="[a-z0-9._%+-]+@uni.edu.pe$|[a-z0-9._%+-]+@uni.pe$" placeholder="Correo Electrónico" required />
+        <input name="password" type="password" placeholder="Contraseña" required />
         <input type="submit" value="Acceder">
       </form>
       <form action="reg" method="POST" class="formulario_register">
         <h2>Registrarse</h2>
-        <input type="text" name="nombrereg" placeholder="Nombre Completo" />
-        <input type="text" name="correoreg" placeholder="Correo Electrónico" />
-        <input type="password" name="passreg" placeholder="Contraseña" />
+        <input type="text" name="nombrereg" placeholder="Nombre Completo" required />
+        <input type="email" name="correoreg" placeholder="Correo Electrónico" pattern="[a-z0-9._%+-]+@uni.edu.pe$|[a-z0-9._%+-]+@uni.pe$" required />
+        <input type="password" name="passreg" placeholder="Contraseña" required />
         <input type="submit" value="Registrarse">
       </form>
     </div>
@@ -244,5 +244,6 @@ function anchoPagina() {
     contenedor_login_register.style.left = "0px";
   }
 }
+
     </script>
 </html>
