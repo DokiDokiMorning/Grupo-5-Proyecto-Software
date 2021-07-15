@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html action="Profesor">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">Curso 1</a>
+  <a href="#">Curso 2</a>
+  <a href="#">Curso 3</a>
+  <a href="#">Curso 4</a>
+  <ul>
+      <a href="./notas">Notas</a></li>
+      <a href="/logout">Cerrar Sesión</a></li>
+  </ul>
+</div>
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="driveNav()">&#9776;</span>
+  <h1 style="display:inline-block; text-decoration:none; color:#295F74; margin-right:20px;">Curso 1</h1>
+  <a href="staff.html" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Editar</h6></a>
+  <a href="staff.html" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Alumnos Matriculados</h6></a>
+  <a href="#"><p>+ Nueva Semana</p></a>
+  <a href="#"><p>+ Crear Evaluación</p></a>
+  <select id="clases" name="select" onchange="funcionclase()">
+    <option value="Clase1">Clase 1</option>
+    <option value="Clase2" selected>Clase 2</option>
+    <option value="Clase3">Clase 3</option>
+  </select>
+
+  <a data-target="#myModal" data-toggle="modal" href="#myModal" id="myBtn" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Subir Material</h6></a>
+<p id="materialclase"></p>
+  <select id="evaluaciones" name="select" onchange="funcionevaluacion()">
+    <option value="Evalciacion1">Evaluación 1</option>
+    <option value="Evalciacion2" selected>Evaluación 2</option>
+    <option value="Evalciacion3">Evaluación 3</option>
+  </select>
+  <a data-target="#myModal2" data-toggle="modal" href="#myModal2" id="myBtn2" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Evaluar trabajos</h6></a>
+<p id="evaluacionespasadas"></p>
+</div>
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Subir Material</h2>
+    </div>
+    <div class="modal-body">
+      <form action="upload" method="POST">
+        <input name="classname" type="text" placeholder="Nombre de la clase" required />
+        <input name="nroSemana" type="number" placeholder="Semana de clase" required />
+        <input name="linkclass" type="url" placeholder="Link del drive" required />
+        <input name="classdescription" type="text" placeholder="Descripción de la clase" required />
+        <input type="submit" value="Subir nueva clase">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <h5>Universidad Nacional de Ingeniería</h5>
+    </div>
+  </div>
+
+</div>
+<div id="myModal2" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Evaluar Trabajos</h2>
+    </div>
+    <div class="modal-body">
+      <form action="calificacion" method="POST">
+        <input type="submit">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <h5>Universidad Nacional de Ingeniería</h5>
+    </div>
+  </div>
+
+</div>
+<script>
+  function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+function driveNav() {
+  var x = document.getElementById("mySidenav");
+  var y = document.getElementById("main");
+  if (x.style.width !== "250px" && y.style.marginLeft !== "250px" ) {
+    openNav();
+  } else {
+    closeNav();
+  }
+}
+function funcionclase(){
+  var x= document.getElementById("clases").value;
+  document.getElementById("materialclase").innerHTML = "Esta es la " + x;
+  
+
+}
+function funcionevaluacion(){
+  var x= document.getElementById("evaluaciones").value;
+  document.getElementById("evaluacionespasadas").innerHTML = "Esta es la " + x;
+}
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+// Get the modal
+var modal2 = document.getElementById("myModal2");
+
+// Get the button that opens the modal
+var btn2 = document.getElementById("myBtn2");
+
+// When the user clicks the button, open the modal 
+btn2.onclick = function() {
+  modal2.style.display = "block";
+}
+var span2 = document.getElementsByClassName("close")[1];
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function() {
+  modal2.style.display = "none";
+}
+/*
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal2.style.display = "none";
+  }
+}*/
+
+</script>
+</body>
+</html> 
