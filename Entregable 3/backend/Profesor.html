@@ -193,7 +193,7 @@ body{
   <a href="./notas">Notas</a>
   <a href="/logout">Cerrar Sesión</a>
 </div>
-
+<div class="fondo" id="container">
 <div id="main">
   <span style="font-size:30px;cursor:pointer" onclick="driveNav()">&#9776;</span>
   <h1 style="display:inline-block; text-decoration:none; color:#295F74; margin-right:20px;">Curso 1</h1>
@@ -208,7 +208,7 @@ body{
   </select>
 
   <a data-target="#myModal" data-toggle="modal" href="#myModal" id="myBtn" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Subir Material</h6></a>
-<p id="materialclase"></p>
+  <p id="materialclase"></p>
   <select id="evaluaciones" name="select" onchange="funcionevaluacion()">
     <option value="Evalciacion1">Evaluación 1</option>
     <option value="Evalciacion2" selected>Evaluación 2</option>
@@ -216,7 +216,7 @@ body{
   </select>
   <a data-target="#myModal2" data-toggle="modal" href="#myModal2" id="myBtn2" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Evaluar trabajos</h6></a>
 <p id="evaluacionespasadas"></p>
-</div>
+
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
@@ -238,7 +238,7 @@ body{
       <h5>Universidad Nacional de Ingeniería</h5>
     </div>
   </div>
-
+ </div>
 </div>
 <div id="myModal2" class="modal">
 
@@ -257,17 +257,23 @@ body{
       <h5>Universidad Nacional de Ingeniería</h5>
     </div>
   </div>
-
+ </div>
 </div>
 <script>
-  function openNav() {
+function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("main").style.marginLeft = "0px";
+  document.getElementById("main").style.opacity = "0.6";
+  document.getElementById("container").style.marginLeft = "250px";
+  document.getElementById("container").style.backgroundColor = "rgba(237,210,21,0.7)";
 }
 
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
+  document.getElementById("main").style.opacity = "1";
+  document.getElementById("container").style.marginLeft = "0";
+  document.getElementById("container").style.backgroundColor = "rgba(237,251,21,0.5)";
 }
 function driveNav() {
   var x = document.getElementById("mySidenav");
