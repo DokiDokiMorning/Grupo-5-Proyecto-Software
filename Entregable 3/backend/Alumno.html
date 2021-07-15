@@ -195,31 +195,29 @@ body{
   <a href="/logout">Cerrar Sesión</a>
 </div>
 
-<div id="main">
- <div class="topbar">
+<div class="topbar">
   <span style="font-size:30px;cursor:pointer;color:white;position:left" onclick="driveNav()">&#9776;</span>
   <h1 style="display:inline-block; text-decoration:none; color:#295F74; margin-right:20px;">Curso 1</h1>
   <a href="staff.html" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Alumnos Matriculados</h6></a>
- </div>
- <div class="fondo" id="container">
+</div>
+<div class="fondo" id="container">
   <div id="main">
   <select id="clases" name="select" onchange="funcionclase()">
     <option value="Clase1">Clase 1</option>
     <option value="Clase2" selected>Clase 2</option>
     <option value="Clase3">Clase 3</option>
   </select>
-
-<p id="materialclase"></p>
+  <p id="materialclase"></p>
   <select id="evaluaciones" name="select" onchange="funcionevaluacion()">
     <option value="Evalciacion1">Evaluación 1</option>
     <option value="Evalciacion2" selected>Evaluación 2</option>
     <option value="Evalciacion3">Evaluación 3</option>
   </select>
-<p id="evaluacionespasadas"></p>
+  <p id="evaluacionespasadas"></p>
   </div>
- </div>
+</div>
 <script>
-  function openNav() {
+function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
   document.getElementById("main").style.marginLeft = "0px";
   document.getElementById("main").style.opacity = "0.6";
