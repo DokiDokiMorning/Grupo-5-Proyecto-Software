@@ -5,6 +5,62 @@ var bodyParser = require('body-parser');
 var path = require('path');
 //var sphp = require('sphp');
 
+var Blocker = function() {
+  this.blocked  = false;
+};
+
+Blocker.prototype.enableBlock = function() {
+  this.blocked = true;
+};
+
+Blocker.prototype.disableBlock = function() {
+  this.blocked = false;
+};
+
+Blocker.prototype.isBlocked = function() {
+  return this.blocked === true;
+};
+
+Blocker.prototype.middleware = function() {
+  var self = this;
+  return function(req, res, next) {
+    if (self.isBlocked())
+      return res.sendStatus(503);
+    next();
+  }
+};
+
+var blocker             = new Blocker();
+var BlockingMiddleware  = blocker.middleware();
+
+var Blocker2 = function() {
+  this.blocked  = false;
+};
+
+Blocker2.prototype.enableBlock = function() {
+  this.blocked = true;
+};
+
+Blocker2.prototype.disableBlock = function() {
+  this.blocked = false;
+};
+
+Blocker2.prototype.isBlocked = function() {
+  return this.blocked === true;
+};
+
+Blocker2.prototype.middleware = function() {
+  var self = this;
+  return function(req, res, next) {
+    if (self.isBlocked())
+      return res.sendStatus(503);
+    next();
+  }
+};
+
+var blocker2             = new Blocker2();
+var BlockingMiddleware2  = blocker2.middleware();
+
 const crypto = require('crypto')
 let salt = 'f844b09ff50c'
 let alumn = "@uni.pe";
@@ -28,6 +84,7 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
+var usertype;
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 //app.use(sphp.express('nodelogin/'));
@@ -35,14 +92,14 @@ app.use(bodyParser.json());
 app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname + '/login.html'));
 });
-app.get('/Profesor', function(request, response) {
+app.get('/Profesor', BlockingMiddleware, function(request, response) {
   if (request.session.loggedin) {
     response.sendFile(path.join(__dirname + '/Profesor.html'));
   } else {
     response.send('Please login to view this page!');
   }
 });
-app.get('/Alumno', function(request, response) {
+app.get('/Alumno', BlockingMiddleware2, function(request, response) {
   if (request.session.loggedin) {
     response.sendFile(path.join(__dirname + '/Alumno.html'));
   } else {
@@ -91,6 +148,8 @@ app.get('/logout', function(request, response, next) {
         return next(err);
       } else {
         return response.redirect('/');
+        blocker.enableBlock();
+        blocker2.enableBlock();
       }
     });
   }
@@ -111,7 +170,7 @@ app.post('/upload', function(request, response) {
               "failed":"error ocurred"
             })
           } else {
-            response.redirect('/home');
+            response.redirect('/Profesor');
             }
         });
 });
@@ -119,7 +178,7 @@ app.post('/calificacion', function(request, response) {
         connection.query('select * from notas', function (error, results, fields) {
           if (error) throw error;
           console.log(results[0].Nota);
-          response.redirect('/home');
+          response.redirect('/Profesor');
         });
 });
 app.post('/auth', function(request, response) {
@@ -136,8 +195,16 @@ app.post('/auth', function(request, response) {
         let tipo = "";
         if(verAl!=-1) tipo="Alumno";
         else if(verPr!=-1) tipo="Profesor";
-        if (tipo=="Alumno") response.redirect('/Alumno');
-        else if (tipo=="Profesor") response.redirect('/Profesor');
+        if (tipo=="Alumno") {
+          blocker2.disableBlock();
+          response.redirect('/Alumno');
+          blocker.enableBlock();
+        }
+        else if (tipo=="Profesor") {
+          blocker.disableBlock();
+          response.redirect('/Profesor');
+          blocker2.disableBlock();
+        }
       } else {
         response.send('Incorrect Username and/or Password!');
       }     
