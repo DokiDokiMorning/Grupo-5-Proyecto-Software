@@ -194,29 +194,28 @@ body{
   <a href="/logout">Cerrar Sesión</a>
 </div>
 <div class="topbar">
-  <span style="font-size:30px;cursor:pointer" onclick="driveNav()">&#9776;</span>
-  <h1 style="display:inline-block; text-decoration:none; color:#295F74; margin-right:20px;">Curso 1</h1>
-  <a href="staff.html" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Editar</h6></a>
-  <a href="staff.html" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Alumnos Matriculados</h6></a>
+  <span style="font-size:30px;cursor:pointer" onclick="driveNav()">&#9776;Menú</span>
+  <a href="staff.html" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;">Editar</a>
+  <a href="staff.html" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;">Alumnos Matriculados</a>
  </div>
  <div class="fondo" id="container">
 <div id="main">
-  <a href="#"><p>+ Nueva Semana</p></a>
-  <a href="#"><p>+ Crear Evaluación</p></a>
+  <a href="#">+ Nueva Semana</a>
+  <a href="#">+ Crear Evaluación</a>
   <select id="clases" name="select" onchange="funcionclase()">
     <option value="Clase1">Clase 1</option>
     <option value="Clase2" selected>Clase 2</option>
     <option value="Clase3">Clase 3</option>
   </select>
 
-  <a data-target="#myModal" data-toggle="modal" href="#myModal" id="myBtn" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Subir Material</h6></a>
+  <a data-target="#myModal" data-toggle="modal" href="#myModal" id="myBtn" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;">Subir Material</a>
   <p id="materialclase"></p>
   <select id="evaluaciones" name="select" onchange="funcionevaluacion()">
     <option value="Evalciacion1">Evaluación 1</option>
     <option value="Evalciacion2" selected>Evaluación 2</option>
     <option value="Evalciacion3">Evaluación 3</option>
   </select>
-  <a data-target="#myModal2" data-toggle="modal" href="#myModal2" id="myBtn2" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;"><h6>Evaluar trabajos</h6></a>
+  <a data-target="#myModal2" data-toggle="modal" href="#myModal2" id="myBtn2" style="display:inline-block; text-decoration:none; color:#5F3A32; margin-right:20px;">Evaluar trabajos</a>
 <p id="evaluacionespasadas"></p>
 
 <div id="myModal" class="modal">
