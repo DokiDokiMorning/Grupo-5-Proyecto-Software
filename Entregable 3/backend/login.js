@@ -203,7 +203,7 @@ app.post('/auth', function(request, response) {
         else if (tipo=="Profesor") {
           blocker.disableBlock();
           response.redirect('/Profesor');
-          blocker2.disableBlock();
+          blocker2.enableBlock();
         }
       } else {
         response.send('Incorrect Username and/or Password!');
