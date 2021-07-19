@@ -246,11 +246,8 @@ body{
 <div class="fondo" id="container">
   <div id="main">
    <a>Material de Clases</a>
-  <select id="clases" name="select" onchange="funcionclase()">
-    <option value="Clase1">Clase 1</option>
-    <option value="Clase2" selected>Clase 2</option>
-    <option value="Clase3">Clase 3</option>
-  </select>
+  <div id="seleccion">
+  </div>
   <p id="materialclase"></p>
    <br>
    <a>Evaluaciones</a>
@@ -288,11 +285,16 @@ function driveNav() {
   }
 }
 function funcionclase(){
-  var x= document.getElementById("clases").value;
-  document.getElementById("materialclase").innerHTML = "Esta es la " + x;
+  var query = [{valor: 1, nombre: 'nombre1'},{valor: 3, nombre: 'nombre3'},{valor: 2, nombre: 'nombre2'}];
+  document.getElementById("seleccion").innerHTML = `<select id="clases" name="select" default='1'>
+  ${query.map((e)=>{
+    return `<option value=${e.valor}>${e.nombre}</option>`
+  })}
+    </select>`
   
 
 }
+funcionclase();
 function funcionevaluacion(){
   var x= document.getElementById("evaluaciones").value;
   document.getElementById("evaluacionespasadas").innerHTML = "Esta es la " + x;
