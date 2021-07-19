@@ -4,34 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notas</title>
+    <title>UNI Classroom</title>
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/f/f7/Uni-logo_transparente_granate.png" />
     <style>
         .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-  }
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: maroon;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            overflow-x:hidden;
+        } 
   
-  .sidenav a {
+  .sidenav a{
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: #fff;
     display: block;
     transition: 0.3s;
   }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
+
+  .sidenav a:hover{
+    color: #111;
   }
-  
+
+  .sidenav a1{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+  }
+      
   .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -44,6 +54,45 @@
     transition: margin-left .5s;
     padding: 16px;
   }
+        
+  #main a{
+    padding: 8px 8px 16px 8px;
+    text-decoration: none;
+    font-size: 30px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+  }
+
+  #main a1{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+  }
+
+  #main a:hover{
+    color: maroon;
+  }
+        
+  .fondo{
+    height: 100%;
+    width: relative;
+    position: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    background-color: rgba(237,251,21,0.5);
+    transition: 0.5s;
+  }
+
+.topbar{
+  height: auto;
+  width: 100%;
+  z-index: 1;
+  background-color: maroon;
+  transition: 0.5s;
+}
 
   img {
     width: 200px;
@@ -64,7 +113,8 @@
         <a href="#">Curso 2</a>
         <a href="#">Curso 3</a>
         <a href="#">Curso 4</a>
-        <a href="#">Notas</a>
+        <a1>--------------------</a1>
+        <a href="/logout">Cerrar Sesión</a>
     </div>
 
     <span onclick="openNav()"></span>
@@ -81,15 +131,21 @@
 
     <script>
         function openNav() {
-          document.getElementById("mySidenav").style.width = "250px";
-          document.getElementById("main").style.marginLeft = "250px";
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "0px";
+            document.getElementById("main").style.opacity = "0.6";
+            document.getElementById("container").style.marginLeft = "250px";
+            document.getElementById("container").style.backgroundColor = "rgba(237,210,21,0.7)";
         }
-        
+
         function closeNav() {
-          document.getElementById("mySidenav").style.width = "0";
-          document.getElementById("main").style.marginLeft= "0";
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.getElementById("main").style.opacity = "1";
+            document.getElementById("container").style.marginLeft = "0";
+            document.getElementById("container").style.backgroundColor = "rgba(237,251,21,0.5)";
         }
-        </script>
+    </script>
 
 </body>
 </html>
